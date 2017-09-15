@@ -1,28 +1,41 @@
 import React from "react";
-import { TabNavigator, StackNavigator } from "react-navigation";
-import { View } from "react-native";
+import { StackNavigator } from "react-navigation";
+import { Text } from "react-native";
 import * as firebase from "firebase";
-import Login from "../app/screens/login";
-import Home from "../app/screens/home";
+import Home from "./screens/home";
+import Login from "./screens/login";
+import LoginScreen from "./screens/loginScreen";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDwp7llVHPAwk2AdNIE34v18pEQCuxXa7Y",
-    databaseURL: "https://travelchat-16d9a.firebaseio.com",
-  };
-  
-  firebase.initializeApp(firebaseConfig);
+  apiKey: "AIzaSyD-8l49UiX0H8vLUS28h7KxpdnQXj_tCZU",
+  databaseURL: "https://clonetinder-c7909.firebaseio.com"
+};
 
-const Routes = StackNavigator({
+firebase.initializeApp(firebaseConfig);
+
+const RouteConfigs = {
   Login: {
     screen: Login,
     navigationOptions: {
-      header: null
+      title: "Travel Chatter",
+      headerRight: (
+        <Text
+          style={{ marginRight: 5, color: "blue", FontSize: 15 }}
+          onPress={() => this.state.navigation.navigate("LoginScreen")}
+        >
+          Login
+        </Text>
+      )
     }
   },
+
   Home: {
     screen: Home,
-    navigationOptions: Headers.myNavOptions
-  }
-});
+    navigationOptions: {
+      title: "Jacksonville"
+    }
+  },
+  LoginScreen: { screen: LoginScreen }
+};
 
-export default Routes;
+export default StackNavigator(RouteConfigs);

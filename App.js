@@ -1,4 +1,2 @@
-import Expo from 'expo'
-import App from './app'
-
-Expo.registerRootComponent(App)
+import App from './app/index'
+export default App
