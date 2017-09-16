@@ -1,56 +1,38 @@
+import Expo from "expo";
 import React from "react";
 import { View, Text } from "react-native";
-import {
-  Container,
-  Content,
-  Card,
-  CardItem,
-  Thumbnail,
-  Image,
-  Button,
-  Icon,
-  Header,
-  Title
-} from "native-base";
+import * as firebase from "firebase";
+import GeoFire from "geofire";
 
 export default class Home extends React.Component {
+  componentWillMount() {
+    this.updateUserLocation(this.props.navigation.state.params.uid)    
+    this.updateUserLocation();
+  }
+
+  updateUserLocation = async uid => {
+    const { Permissions, Location } = Expo;
+    const { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status === "granted") {
+      const location = await Location.getCurrentPositionAsync({
+        enableHighAccuracy: false
+      });
+      const { latitude, longitude } = location.coords;
+
+      const geoFireRef = new GeoFire(firebase.database().ref("geoData"));
+      geoFireRef.set(uid, [latitude, longitude]);
+
+      console.log("Permission Granted", location);
+    } else {
+      console.log("Permission Denied");
+    }
+  };
+
   render() {
     return (
-      <Container>
-        <Content>
-          <Card>
-            <CardItem button>
-              <Text>General Chat</Text>
-            </CardItem>
-          </Card>
-          <Card>
-            <CardItem button>
-              <Text>Food</Text>
-            </CardItem>
-          </Card>
-          <Card>
-            <CardItem button>
-              <Text>Exploration</Text>
-              <Text style={{ opacity: 9, fontSize: 12 }}>Things to see</Text>
-            </CardItem>
-          </Card>
-          <Card>
-            <CardItem button>
-              <Text>Family Activities</Text>
-            </CardItem>
-          </Card>
-          <Card>
-            <CardItem button>
-              <Text>Hangouts</Text>
-            </CardItem>
-          </Card>
-          <Card>
-            <CardItem button>
-              <Text>Night Life</Text>
-            </CardItem>
-          </Card>
-        </Content>
-      </Container>
+      <View>
+        <Text>Sick Ass Card Stack to be here</Text>
+      </View>
     );
   }
 }

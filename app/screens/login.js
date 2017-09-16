@@ -1,5 +1,5 @@
- import React, {Component} from 'react'
-import {View, StyleSheet, Image} from 'react-native'
+import React, {Component} from 'react'
+import {View, StyleSheet, Image, Text} from 'react-native'
 import FacebookButton from '../components/facebookButton'
 
 export default class Login extends Component {
@@ -16,8 +16,8 @@ export default class Login extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    width: 600,
-    height: 700,
+    width: "100%",
+    height: "100%",
     backgroundColor: "transparent",
     justifyContent: "center",
     alignItems: "center"
