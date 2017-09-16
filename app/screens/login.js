@@ -1,15 +1,12 @@
 import React, {Component} from 'react'
 import {View, StyleSheet, Image, Text} from 'react-native'
 import FacebookButton from '../components/facebookButton'
+import AppIntro from '../components/appIntro'
 
 export default class Login extends Component {
   render() {
     return (
-       <Image
-        style={styles.container}
-        source={require("../img/travelBackground.jpg")}
-      >
-      </Image>
+       <AppIntro />
     )
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { StackNavigator } from "react-navigation";
-import { Text,} from "react-native";
+import { Text } from "react-native";
 import * as firebase from "firebase";
 import Home from "./screens/home";
 import Login from "./screens/login";
@@ -22,8 +22,11 @@ const RouteConfigs = {
   Home: {
     screen: Home,
     navigationOptions: {
-      title: "Jacksonville"
-    }
+      title: "Jacksonville",
+         headerStyle: {
+        backgroundColor: "#323232",
+         },
+    },
   },
   LoginScreen: { screen: LoginScreen }
 };
