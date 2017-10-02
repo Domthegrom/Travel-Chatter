@@ -12,3 +12,4 @@ There will be a profile page with settings to turn notifications on or off. To l
 * There will also be the functionality to save a message from a group chat and it will go to your profile Clipboard and you can look back on message snippets with others. There will also be a report functionality that will report users that are using the application for malicious use.
 * Eventually there will be a friends list
 * Some awesome animations and designs also 
+* Adding a inspiration Tab linked with the unsplash API Image Gallery!
