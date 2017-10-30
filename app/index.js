@@ -1,5 +1,5 @@
 import React from "react";
-import { StackNavigator } from "react-navigation";
+import { StackNavigator, TabNavigator } from "react-navigation";
 import { Text } from "react-native";
 import * as firebase from "firebase";
 import Home from "./screens/home";
@@ -17,18 +17,44 @@ firebase.initializeApp(firebaseConfig);
 const RouteConfigs = {
   Login: {
     screen: Login,
-    navigationOptions: Headers.myNavOptions,
-    },
+    navigationOptions: Headers.myNavOptions
+  },
   Home: {
     screen: Home,
     navigationOptions: {
       title: "Jacksonville",
-         headerStyle: {
-        backgroundColor: "#323232",
-         },
-    },
+      headerStyle: {
+        backgroundColor: "white"
+      }
+    }
   },
-  LoginScreen: { screen: LoginScreen }
+  LoginScreen: {
+    screen: LoginScreen,
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: "white"
+      }
+    }
+  }
 };
 
-export default StackNavigator(RouteConfigs);
+const tabNav = TabNavigator({
+  Home: {
+      screen: Home,
+      navigationOptions: {
+          tabBarLabel:"Tab 1",
+          tabBarIcon: ({ tintColor }) => <Icon name={"glass"} size={30} color={tintColor} />
+      }
+  }
+
+  ///... add more tabs here
+
+}, {
+      tabBarOptions: {
+          activeTintColor: '#222',
+      }
+});
+
+
+export default StackNavigator(RouteConfigs, tabNav);
+ 
