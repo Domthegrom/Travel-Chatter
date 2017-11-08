@@ -2,7 +2,7 @@
 Chatting city by city. Enter a new city: New Group chat for the city. Leaving a city: Leave the city group chat. Find sweet recommendations or banter with a fun live chat of locals or people just passing by
 
 * Login Swiper – Done but needs content
-* Login Page (Where you actually login) – Done just need to add some styling and a second authentication for Email users.
+* Login Page (Where you actually login) – Just need to hook up auth for email login.
 * This is how my data is set up so far. I am receiving the user’s location and getting the current longitude and latitude. I am also getting the users information from Facebook. Such as First Name, Gender, Creating a unique ID, and Last Name.
 
 * I am then authenticating the user with Facebook only currently. Which re-directs the user to the home Screen. 
