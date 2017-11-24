@@ -5,6 +5,7 @@ import * as firebase from "firebase";
 import FacebookButton from "../components/facebookButton";
 import LoginForm from "../components/loginForm"
 import { Card } from 'react-native-elements';
+
 export default class LoginSCreen extends React.Component {
   componentDidMount() {
     // Make this a function soon

@@ -1,7 +1,8 @@
 import Expo from "expo";
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-import { Card, ListItem, Button } from 'react-native-elements'
+import { Card, ListItem, Button } from "react-native-elements";
+import { tabNav } from "../index";
 import * as firebase from "firebase";
 import GeoFire from "geofire";
 
@@ -31,68 +32,45 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
       <ScrollView>
-        <Card
-        title='General!'
+      {/* <View style={[styles.parent]}>
+        <View style={[styles.child, { backgroundColor: "#996666" }]} />
+        <View style={[styles.child, { backgroundColor: "#339966" }]} />
+        <View style={[styles.child, { backgroundColor: "#996633" }]} />
+        <View style={[styles.child, { backgroundColor: "#669933" }]} />
+      </View> */}
+      <Card
+      onPress={() => navigation.navigate("Home")}
+      style={styles.cardContainer}
         image={require('../img/slider2.jpg')}>
-        <Text style={{marginBottom: 10}}>
-          The idea with React Native Elements is more about component structure than actual design.
-        </Text>
-        <Button
-          //icon={{name: 'code'}}
-          backgroundColor='#03A9F4'
-         // fontFamily='Lato'
-          buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-          title='VIEW NOW' />
       </Card>
       <Card
-        title='Family Friendly'
+      style={styles.cardContainer}
         image={require('../img/slider2.jpg')}>
-        <Text style={{marginBottom: 10}}>
-          The idea with React Native Elements is more about component structure than actual design.
-        </Text>
-        <Button
-          //icon={{name: 'code'}}
-          backgroundColor='#03A9F4'
-         // fontFamily='Lato'
-          buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-          title='VIEW NOW' />
       </Card>
       <Card
-        title='Night Life'
+      style={styles.cardContainer}
         image={require('../img/slider2.jpg')}>
-        <Text style={{marginBottom: 10}}>
-          The idea with React Native Elements is more about component structure than actual design.
-        </Text>
-        <Button
-         // icon={{name: 'code'}}
-          backgroundColor='#03A9F4'
-         // fontFamily='Lato'
-          buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-          title='VIEW NOW' />
-      </Card>
-      <Card
-        title='Restaurants'
-        image={require('../img/slider2.jpg')}>
-        <Text style={{marginBottom: 10}}>
-          The idea with React Native Elements is more about component structure than actual design.
-        </Text>
-        <Button
-          //icon={{name: 'code'}}
-          backgroundColor='#03A9F4'
-         // fontFamily='Lato'
-          buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-          title='VIEW NOW' />
       </Card>
       </ScrollView>
-      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1
+  parent: {
+    margin: 5,
+    flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap"
+  },
+  child: {
+    width: "48%",
+    margin: "1%",
+    aspectRatio: 1
+  },
+  cardContainer: {
+    flex: 1,
+    margin: 5,
   }
 });

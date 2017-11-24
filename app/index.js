@@ -57,4 +57,3 @@ const tabNav = TabNavigator({
 
 
 export default StackNavigator(RouteConfigs, tabNav);
- 
